@@ -1,0 +1,27 @@
+{
+  "name": "polymer-elements",
+  "version": ".1",
+  "authors": [
+    "Tyler Hoeflicker <tyler.hoeflicker@gmail.com>"
+  ],
+  "description": "Collection of custom polymer elements",
+  "keywords": [
+    "polymer",
+    "webcomponents",
+    "material"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-card": "PolymerElements/paper-card#~1.0.4",
+    "paper-styles": "PolymerElements/paper-styles#~1.0.11",
+    "paper-toolbar": "PolymerElements/paper-toolbar#~1.0.4",
+    "polymer": "Polymer/polymer#^1.0.0"
+  }
+}

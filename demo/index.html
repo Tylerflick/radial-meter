@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymer Meters</title>
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="meters.html">
+  <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+  <link rel="import" href="bower_components/paper-styles/typography.html">
+  <link rel="import" href="bower_components/paper-card/paper-card.html">
+  <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+  <script>
+    window.onload = function() {
+      setInterval(function() {
+          document.getElementById('temp').data = Math.floor(Math.random() * (100 - 0 + 1));
+          document.getElementById('temp2').data = Math.floor(Math.random() * (100 - 0 + 1));
+      }, 2200);
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Roboto', 'Noto', sans-serif;
+    }
+    paper-toolbar {
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+<body class="fullbleed">
+  <paper-header-panel class="vertical layout">
+    <paper-toolbar>
+      <div class="title">Hello</div>
+    </paper-toolbar>
+    <content class="layout vertical self-center">
+      <div>
+        <paper-card>
+          <code>Example Code</code>
+        </paper-card>
+        <paper-card>
+          <radial-meter id="temp" data="0" max-value="120" min-value="0" metric="°F"><radial-meter>
+        </paper-card>
+      </div>
+      <div>
+        <paper-card>
+          <div>Example Code</div>
+        </paper-card>
+        <paper-card>
+          <radial-meter id="temp2" data="0" max-value="120" min-value="0" metric="°F"><radial-meter>
+        </paper-card>
+      </div>
+    </content>
+  </paper-header-panel>
+</body>
+</html>
