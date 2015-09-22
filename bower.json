@@ -4,11 +4,12 @@
   "authors": [
     "Tyler Hoeflicker <tyler.hoeflicker@gmail.com>"
   ],
-  "description": "Collection of custom polymer elements",
+  "description": "Simple clean radial meter built with SVG and Polymer",
   "keywords": [
     "polymer",
     "webcomponents",
-    "material"
+    "material",
+    "meter"
   ],
   "license": "MIT",
   "ignore": [
@@ -21,7 +22,6 @@
   "dependencies": {
     "paper-card": "PolymerElements/paper-card#~1.0.4",
     "paper-styles": "PolymerElements/paper-styles#~1.0.11",
-    "paper-toolbar": "PolymerElements/paper-toolbar#~1.0.4",
     "polymer": "Polymer/polymer#^1.0.0"
   }
 }
