@@ -4,6 +4,7 @@
     "Tyler Hoeflicker <tyler.hoeflicker@gmail.com>"
   ],
   "description": "Simple clean radial meter built with SVG and Polymer",
+  "main": "meters.html",
   "keywords": [
     "polymer",
     "webcomponents",
