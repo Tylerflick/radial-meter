@@ -105,7 +105,7 @@
       _baseChanged: function(newValue, oldValue) {
         this.radians = Math.PI * 2 * this.$$('#radial-meter-bar').getAttribute('r');
         this.multiplier = this.radians / 360;
-        _dataChanged(data, data);
+        this._dataChanged(data, data);
       },
 
       ready: function() {
