@@ -76,13 +76,11 @@
       properties: {
         max: {
           type: Number,
-          value: 100,
-          observer: '_baseChanged'
+          value: 100
         },
         min: {
           type: Number,
-          value: 0,
-          observer: '_baseChanged'
+          value: 0
         },
         data: {
           type: Number,
@@ -100,12 +98,6 @@
         }
 
         this.$$('#radial-meter-bar').setAttribute('stroke-dashoffset', val);
-      },
-
-      _baseChanged: function(newValue, oldValue) {
-        this.radians = Math.PI * 2 * this.$$('#radial-meter-bar').getAttribute('r');
-        this.multiplier = this.radians / 360;
-        this._dataChanged(data, data);
       },
 
       ready: function() {
