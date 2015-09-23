@@ -103,15 +103,14 @@
       },
 
       _baseChanged: function(newValue, oldValue) {
-        this.calcBaseMetrics();
+        this.radians = Math.PI * 2 * this.$$('#radial-meter-bar').getAttribute('r');
+        this.multiplier = this.radians / 360;
         _dataChanged(data, data);
       },
 
       ready: function() {
-        this.calcBaseMetrics = function() {
-          this.radians = Math.PI * 2 * this.$$('#radial-meter-bar').getAttribute('r');
-          this.multiplier = this.radians / 360;
-        };
+        this.radians = Math.PI * 2 * this.$$('#radial-meter-bar').getAttribute('r');
+        this.multiplier = this.radians / 360;
 
         this.calcBaseMetrics();
         this.data = this.min;
