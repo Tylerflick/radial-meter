@@ -74,13 +74,15 @@
       is: 'radial-meter',
 
       properties: {
-        maxValue: {
+        max: {
           type: Number,
-          value: 100
+          value: 100,
+          observer: '_baseChanged'
         },
-        minValue: {
+        min: {
           type: Number,
-          value: 0
+          value: 0,
+          observer: '_baseChanged'
         },
         data: {
           type: Number,
@@ -90,7 +92,7 @@
       },
 
       _dataChanged: function(newValue, oldValue) {
-        var convertedValue = newValue / (this.maxValue - this.minValue);
+        var convertedValue = newValue / (this.max - this.min);
         var val =  this.radians - (this.radians - (90 * this.multiplier)) * (convertedValue);
 
         if (isNaN(val)) {
@@ -100,11 +102,19 @@
         this.$$('#radial-meter-bar').setAttribute('stroke-dashoffset', val);
       },
 
-      ready: function() {
-        this.radians = Math.PI * 2 * this.$$('#radial-meter-bar').getAttribute('r');
-        this.multiplier = this.radians / 360;
+      _baseChanged: function(newValue, oldValue) {
+        this.calcBaseMetrics();
+        _dataChanged(data, data);
+      },
 
-        this.data = this.minValue;
+      ready: function() {
+        this.calcBaseMetrics = function() {
+          this.radians = Math.PI * 2 * this.$$('#radial-meter-bar').getAttribute('r');
+          this.multiplier = this.radians / 360;
+        };
+
+        this.calcBaseMetrics();
+        this.data = this.min;
       }
     });
   </script>
