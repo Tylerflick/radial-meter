@@ -1,9 +1,22 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-styles/default-theme.html">
 <link rel="import" href="../paper-styles/typography.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<!--
+### To Do
+* Allow negative minimum values
+* Add unit tests
+
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--radial-meter-active-color` | The color of the data's stroke | `--default-primary-color`)`
+`--radial-meter-inactive-color` | The color of the baseline for the data | `--divider-color`
+`--radial-meter-transition-duration` | The speed which the data transitions from one value to the next | `1s`
+-->
 <dom-module id="radial-meter">
-  <!-- content  -->
   <template>
     <style>
       #container {
@@ -104,7 +117,6 @@
         this.radians = Math.PI * 2 * this.$$('#radial-meter-bar').getAttribute('r');
         this.multiplier = this.radians / 360;
 
-        this.calcBaseMetrics();
         this.data = this.min;
       }
     });
