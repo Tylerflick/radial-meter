@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "paper-card": "PolymerElements/paper-card#^1.0.4",
-    "paper-toolbar": "PolymerElements/paper-toolbar#^1.0.0",
+    "paper-toolbar": "PolymerElements/paper-toolbar#^1.0.0"
   },
   "repository": {
     "type": "git",
