@@ -103,8 +103,8 @@ Custom property | Description | Default
       },
 
       _dataChanged: function(newValue, oldValue) {
-        var convertedValue = newValue / (this.max - this.min);
-        var val =  this.radians - (this.radians - (90 * this.multiplier)) * (convertedValue);
+        var percentage = (newValue + Math.abs(this.min)) / (this.max - this.min);
+        var val =  this.circumference - (this.circumference - (90 * this.multiplier)) * (percentage);
 
         if (isNaN(val)) {
           return;
@@ -114,8 +114,8 @@ Custom property | Description | Default
       },
 
       ready: function() {
-        this.radians = Math.PI * 2 * this.$$('#radial-meter-bar').getAttribute('r');
-        this.multiplier = this.radians / 360;
+        this.circumference = Math.PI * 2 * this.$$('#radial-meter-bar').getAttribute('r');
+        this.multiplier = this.circumference / 360;
 
         this.data = this.min;
       }
