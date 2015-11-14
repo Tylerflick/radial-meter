@@ -1,0 +1,29 @@
+{
+  "name": "radial-meter",
+  "version": "1.0.0",
+  "authors": [
+    "Anonymous <tyler.hoeflicker@gmail.com>"
+  ],
+  "description": "A circular dashboard style meter.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "meter"
+  ],
+  "main": "radial-meter.html",
+  "license": "MIT",
+  "homepage": "https://www.tylerflick.com/radial-meter",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.2.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#~1.0.9",
+    "web-component-tester": "*"
+  }
+}
