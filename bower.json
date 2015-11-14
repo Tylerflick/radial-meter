@@ -20,6 +20,7 @@
     "/demo/"
   ],
   "dependencies": {
+    "radial-meter": "tylerflick/radial-meter",
     "polymer": "Polymer/polymer#~1.2.0"
   },
   "devDependencies": {

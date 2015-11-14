@@ -1,0 +1,45 @@
+{
+  "name": "radial-meter",
+  "authors": [
+    "Tyler Hoeflicker <tyler.hoeflicker@gmail.com>"
+  ],
+  "description": "Simple clean radial meter built with SVG and Polymer",
+  "main": "radial-meter.html",
+  "keywords": [
+    "polymer",
+    "webcomponents",
+    "material",
+    "meter"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "paper-styles": "PolymerElements/paper-styles#^1.0.11",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0"
+  },
+  "devDependencies": {
+    "paper-card": "PolymerElements/paper-card#^1.0.4",
+    "paper-toolbar": "PolymerElements/paper-toolbar#^1.0.0",
+    "test-fixture": "polymerelements/test-fixture#^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Tylerflick/radial-meter.git"
+  },
+  "homepage": "https://github.com/tylerflick/radial-meter",
+  "_release": "7ebe45c225",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7ebe45c225cac1e4559804aec4acd8799f55f33c"
+  },
+  "_source": "git://github.com/tylerflick/radial-meter.git",
+  "_target": "*",
+  "_originalSource": "tylerflick/radial-meter"
+}

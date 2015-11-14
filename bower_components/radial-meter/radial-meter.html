@@ -1,0 +1,121 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-styles/default-theme.html">
+<link rel="import" href="../paper-styles/typography.html">
+<!--
+
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--radial-meter-active-color` | The color of the data's stroke | `--default-primary-color`)`
+`--radial-meter-inactive-color` | The color of the baseline for the data | `--divider-color`
+`--radial-meter-transition-duration` | The speed which the data transitions from one value to the next | `1s`
+-->
+<dom-module id="radial-meter">
+  <template>
+    <style>
+      #container {
+        width: 200px;
+        height: 200px;
+        font-family: 'Roboto', 'Noto', sans-serif;
+        position: relative;
+      }
+      #radial-container {
+        width: inherit;
+        height: inherit;
+        fill: none;
+        position: absolute;
+        left: 0px;
+        top: 10px;
+      }
+      #radial-meter-bar {
+        stroke: var(--radial-meter-active-color, --default-primary-color);
+        transition: all var(--radial-meter-transition-duration, 1s);
+      }
+      #radial-placeholder-bar {
+        stroke: var(--radial-meter-inactive-color, --divider-color);
+      }
+      #data-container {;
+        text-align: center;
+        height: inherit;
+        width: inherit;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+      #data-value {
+        font-size: 4em;
+        display: block;
+        padding-top: 33%;
+      }
+      #data-metric {
+        font-size: .2em;
+        text-align: right;
+        vertical-align: 2.6em;
+      }
+    </style>
+    <div id="container">
+      <div id="radial-container">
+        <svg version="1.1" width="100%" height="100%">
+          <circle id="radial-placeholder-bar"
+                  cx="100" cy="100" r="92"
+                  transform="rotate(135 100 100)"
+                  stroke-dashoffset="144"
+                  stroke-dasharray="578 578"
+                  stroke-width="8"/>
+          <circle id="radial-meter-bar"
+                  cx="100" cy="100" r="92"
+                  transform="rotate(135 100 100)"
+                  stroke-dashoffset="578"
+                  stroke-dasharray="578 578"
+                  stroke-width="8"/>
+        </svg>
+      </div>
+      <div id="data-container">
+        <span id="data-value">[[data]]<span id="data-metric">[[metric]]</span></span>
+      </div>
+    </div>
+  </template>
+  <!-- logic -->
+  <script>
+    Polymer({
+      is: 'radial-meter',
+
+      properties: {
+        max: {
+          type: Number,
+          value: 100
+        },
+        min: {
+          type: Number,
+          value: 0
+        },
+        data: {
+          type: Number,
+          observer: '_dataChanged'
+        },
+        metric: String
+      },
+
+      _dataChanged: function(newValue, oldValue) {
+        var percentage = (newValue + Math.abs(this.min)) / (this.max - this.min);
+        var val =  this.circumference - (this.circumference - (90 * this.multiplier)) * (percentage);
+
+        if (isNaN(val)) {
+          return;
+        }
+
+        this.$$('#radial-meter-bar').setAttribute('stroke-dashoffset', val);
+      },
+
+      ready: function() {
+        this.circumference = Math.PI * 2 * this.$$('#radial-meter-bar').getAttribute('r');
+        this.multiplier = this.circumference / 360;
+
+        this.data = this.min;
+      }
+    });
+  </script>
+</dom-module>

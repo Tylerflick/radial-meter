@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymer Meters</title>
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <link rel="stylesheet" href="github.css">
+  <link rel="import" href="../radial-meter.html">
+  <link rel="import" href="../../iron-flex-layout/iron-flex-layout.html">
+  <link rel="import" href="../../paper-styles/typography.html">
+  <link rel="import" href="../../paper-card/paper-card.html">
+  <link rel="import" href="../../paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="../../paper-styles/color.html">
+  <script>
+    window.onload = function() {
+      setInterval(function() {
+          document.getElementById('temp').data = Math.floor(Math.random() * (100 - 0 + 1));
+          document.getElementById('percent').data = Math.floor(Math.random() * (100 - 0 + 1));
+      }, 2200);
+    };
+  </script>
+  <style is="custom-style">
+    body {
+      font-family: 'Roboto', 'Noto', sans-serif;
+    }
+    paper-card {
+      flex: auto;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 700px;
+      height: 250px;
+      padding-right: 1em;
+      padding-left: 1em;
+    }
+    .example-docs {
+      padding-right: 2em;
+    }
+    .example-code {
+      -webkit-flex: auto;
+      flex: auto;
+      padding: 1em;
+      font-size: .7em;
+      height: inherit;
+      background-color: rgb(247, 247, 247);
+      border: none !important;
+    }
+    radial-meter {
+      -webkit-flex: initial;
+      flex: initial;
+
+    }
+    .shim {
+      -webkit-flex: auto;
+      flex: auto;
+    }
+    .vertical-divider {
+      height: 20px;
+    }
+    .green-meter {
+      --radial-meter-active-color: var(--paper-green-300);
+    }
+  </style>
+</head>
+<body class="fullbleed">
+  <paper-header-panel class="vertical layout">
+    <content class="layout vertical self-center">
+      <div class="vertical-divider"></div>
+      <paper-card class="container">
+        <div class="example-docs">
+          <h2>Thermometer</h2>
+          <pre class="prettyprint lang-html example-code">
+&lt;radial-meter id="temp" data="0" max="120" min="0" metric="°F"&gt;
+&lt;radial-meter&gt;
+          </pre>
+        </div>
+        <div class="shim"></div>
+        <radial-meter id="temp" data="0" max="120" min="0" metric="°F" flex><radial-meter>
+      </paper-card>
+      <div class="vertical-divider"></div>
+      <paper-card class="container">
+        <div class="example-docs">
+          <h2>Percentage</h2>
+          <pre class="prettyprint lang-html example-code">
+&lt;style is="custom-style"&gt;
+  .green-meter {
+    --radial-meter-active-color: var(--paper-green-300);
+  }
+&lt;style&gt;
+&lt;id="percent" class="green-meter" data="0" max="100" min="-100"
+  metric="%"&gt;
+&lt;radial-meter&gt;
+          </pre>
+        </div>
+        <div class="shim"></div>
+        <radial-meter class="green-meter" id="percent" data="0" max="100" min="-100" metric="%"><radial-meter>
+      </paper-card>
+    </content>
+  </paper-header-panel>
+</body>
+</html>
