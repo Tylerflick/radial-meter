@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <script src="../../webcomponentsjs/webcomponents.min.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../test-fixture/test-fixture-mocha.js"></script>
+
+    <link rel="import" href="../meters.html">
+    <link rel="import" href="../../test-fixture/test-fixture.html">
+
+  </head>
+  <body>
+
+    <test-fixture id="meter">
+      <template>
+        <radial-meter data="10" max="100" min="-100" metric="test"><radial-meter>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="default-meter">
+      <template>
+        <radial-meter data="0" metric="test"><radial-meter>
+      </template>
+    </test-fixture>
+
+    <script>
+      describe('<radial-meter>', function() {
+        var meter;
+        var defaultMeter;
+
+        beforeEach(function() {
+          meter = fixture('meter');
+          defaultMeter = fixture('default-meter');
+        });
+
+        context('default state tests', function() {
+
+          it('should start at minimum', function() {
+            expect(meter.data).to.equal(meter.min);
+            expect(defaultMeter.data).to.equal(defaultMeter.min);
+          });
+
+          it('should have a max value of 100', function() {
+            expect(meter.max).to.equal(100);
+            expect(defaultMeter.max).to.equal(100);
+          });
+
+          it('should allow negative minimum values', function() {
+            expect(meter.min).to.equal(-100);
+          });
+
+          it('should have a default minimum of 0', function() {
+            expect(defaultMeter.min).to.equal(0);
+          });
+
+          it('should have a metric of "test"', function() {
+            expect(meter.metric).to.equal('test');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
