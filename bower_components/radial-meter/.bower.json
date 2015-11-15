@@ -33,12 +33,12 @@
     "url": "git://github.com/Tylerflick/radial-meter.git"
   },
   "homepage": "https://github.com/tylerflick/radial-meter",
-  "version": "1.0.1",
-  "_release": "1.0.1",
+  "version": "1.0.2",
+  "_release": "1.0.2",
   "_resolution": {
     "type": "version",
-    "tag": "v1.0.1",
-    "commit": "a8cbb7daa728fb16c12906c292e6bd4572dce5fe"
+    "tag": "v1.0.2",
+    "commit": "cc360ede25ec361b64e41071ca5fe0ff0d2e2ecd"
   },
   "_source": "git://github.com/tylerflick/radial-meter.git",
   "_target": "*",
