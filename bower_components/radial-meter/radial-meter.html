@@ -14,7 +14,7 @@ The following custom properties and mixins are available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--radial-meter-active-color` | The color of the data's stroke | `--default-primary-color`)`
+`--radial-meter-active-color` | The color of the data's stroke | `--default-primary-color
 `--radial-meter-inactive-color` | The color of the baseline for the data | `--divider-color`
 `--radial-meter-transition-duration` | The speed which the data transitions from one value to the next | `1s`
 
@@ -102,9 +102,11 @@ Custom property | Description | Default
         },
         data: {
           type: Number,
-          observer: '_dataChanged'
+          observer: '_dataChanged',
+          value: this.min
         },
-        metric: String
+        metric: String,
+        value: ""
       },
 
       _dataChanged: function(newValue, oldValue) {
